@@ -111,45 +111,45 @@ export default function LessonModal({ lesson, onClose, onComplete }: LessonModal
         initial={{ scale: 0.9, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.9, opacity: 0, y: 20 }}
-        className="relative bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+        className="relative bg-white w-full max-w-2xl rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden flex flex-col h-full md:h-auto max-h-[100vh] md:max-h-[90vh]"
       >
         {/* Header */}
-        <div className="p-6 border-b border-slate-100 flex items-center justify-between">
+        <div className="p-4 md:p-6 border-b border-slate-100 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+            <div className={`w-8 h-8 md:w-10 md:h-10 rounded-xl flex items-center justify-center ${
               lesson.type === 'speaking' ? 'bg-green-100' : 'bg-primary/10'
             }`}>
-              {lesson.type === 'speaking' ? <Mic className="w-6 h-6 text-green-600" /> : <Sparkles className="w-6 h-6 text-primary" />}
+              {lesson.type === 'speaking' ? <Mic className="w-5 h-5 md:w-6 md:h-6 text-green-600" /> : <Sparkles className="w-5 h-5 md:w-6 md:h-6 text-primary" />}
             </div>
             <div>
-              <h3 className="font-black text-lg text-slate-800 leading-tight">{lesson.title} Session</h3>
-              <p className="text-xs text-slate-400 font-bold uppercase leading-tight tracking-widest mt-0.5">{lesson.type} Practice</p>
+              <h3 className="font-black text-base md:text-lg text-slate-800 leading-tight">{lesson.title} Session</h3>
+              <p className="text-[10px] text-slate-400 font-bold uppercase leading-tight tracking-widest mt-0.5">{lesson.type} Practice</p>
             </div>
           </div>
           <button onClick={onClose} className="p-2 hover:bg-slate-100 rounded-full transition-colors">
-            <X className="w-6 h-6 text-slate-400" />
+            <X className="w-5 h-5 md:w-6 md:h-6 text-slate-400" />
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-8">
+        <div className="flex-1 overflow-y-auto p-4 md:p-8">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-20 gap-4">
               <motion.div 
                 animate={{ rotate: 360 }}
                 transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full"
+                className="w-10 h-10 md:w-12 md:h-12 border-4 border-primary border-t-transparent rounded-full"
               />
-              <p className="text-slate-400 font-bold italic">Lexi is preparing your quest...</p>
+              <p className="text-slate-400 font-bold italic text-sm">Lexi is preparing your quest...</p>
             </div>
           ) : exercise ? (
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               {/* Question */}
               <div className="space-y-2">
-                <label className="text-xs font-black text-slate-400 uppercase tracking-widest">
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
                   {lesson.type === 'speaking' ? 'Repeat this sentence' : 'Translate this sentence'}
                 </label>
-                <div className="bg-slate-50 p-8 rounded-2xl border-2 border-slate-200 group relative">
-                  <p className="text-2xl font-bold text-slate-800 italic leading-relaxed text-center">
+                <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border-2 border-slate-200 group relative">
+                  <p className="text-xl md:text-2xl font-bold text-slate-800 italic leading-relaxed text-center">
                     "{lesson.type === 'speaking' ? exercise.expectedTranslation : exercise.sentence}"
                   </p>
                   

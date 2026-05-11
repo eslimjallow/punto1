@@ -17,20 +17,20 @@ export default function ImmersionSection({ onSelect }: { onSelect: () => void })
         <span className="w-2 h-2 bg-primary rounded-full"></span>
       </h3>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4">
         {IMMERSION_CONTENT.map((content) => (
           <motion.div
             key={content.id}
             whileHover={{ y: -5 }}
             onClick={onSelect}
-            className="p-4 bg-white rounded-2xl border border-border shadow-sm hover:shadow-md transition-all cursor-pointer flex items-center gap-4"
+            className="p-3 md:p-4 bg-white rounded-2xl border border-border shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3 md:gap-4"
           >
-            <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${content.bg}`}>
-              <content.icon className={`w-6 h-6 ${content.color}`} />
+            <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center shrink-0 ${content.bg}`}>
+              <content.icon className={`w-5 h-5 md:w-6 md:h-6 ${content.color}`} />
             </div>
-            <div>
-              <p className="text-sm font-bold text-slate-800 leading-tight">{content.title}</p>
-              <p className="text-[10px] text-slate-400 font-medium leading-tight mt-1">{content.description}</p>
+            <div className="min-w-0">
+              <p className="text-xs md:text-sm font-bold text-slate-800 leading-tight truncate">{content.title}</p>
+              <p className="text-[9px] md:text-[10px] text-slate-400 font-medium leading-tight mt-1 hidden xs:block">{content.description}</p>
             </div>
           </motion.div>
         ))}

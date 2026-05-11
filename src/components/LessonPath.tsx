@@ -32,8 +32,9 @@ export default function LessonPath({ onSelectLesson }: { onSelectLesson: (id: st
         <span className="w-2 h-2 bg-primary rounded-full"></span>
       </h3>
 
-      <div className="relative flex justify-between items-start gap-4">
-        {INITIAL_LESSONS.map((lesson, index) => {
+      <div className="overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide">
+        <div className="relative flex justify-between items-start gap-8 md:gap-4 min-w-[600px] md:min-w-0">
+          {INITIAL_LESSONS.map((lesson, index) => {
           const Icon = ICON_MAP[lesson.type as keyof typeof ICON_MAP] || BookOpen;
           
           return (
@@ -93,6 +94,7 @@ export default function LessonPath({ onSelectLesson }: { onSelectLesson: (id: st
             </div>
           );
         })}
+        </div>
       </div>
     </div>
   );

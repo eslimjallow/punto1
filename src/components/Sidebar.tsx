@@ -23,13 +23,14 @@ const navItems = [
 interface SidebarProps {
   activeTab: string;
   onTabChange: (id: string) => void;
+  className?: string;
 }
 
-export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
+export default function Sidebar({ activeTab, onTabChange, className }: SidebarProps) {
   return (
-    <div className="w-64 h-screen bg-sidebar flex flex-col text-white fixed left-0 top-0 overflow-y-auto">
+    <div className={`w-64 h-screen bg-sidebar flex flex-col text-white fixed left-0 top-0 overflow-y-auto z-40 ${className}`}>
       <div className="p-8 flex items-center gap-3">
-        <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+        <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shrink-0">
           <Trophy className="text-secondary w-6 h-6" />
         </div>
         <span className="text-xl font-black uppercase tracking-wider">
@@ -56,7 +57,7 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
         ))}
       </nav>
 
-      <div className="p-6">
+      <div className="p-6 hidden lg:block">
         <div className="bg-white/5 rounded-2xl p-4 relative overflow-hidden group">
           <div className="relative z-10">
             <p className="text-xs text-slate-400 uppercase font-black tracking-widest mb-2">Daily Streak</p>
