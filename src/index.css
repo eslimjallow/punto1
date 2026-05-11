@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #582CFF;
+  --color-secondary: #FFC800;
+  --color-accent: #FF4B4B;
+  --color-border: #E5E7EB;
+  --color-sidebar: #231F3F;
+  --color-sidebar-active: #582CFF;
+  
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#F8F9FF] text-slate-900 font-sans antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+  
+  .game-button-primary {
+    @apply relative px-6 py-3 rounded-xl font-bold transition-all active:translate-y-1 active:shadow-none bg-primary text-white hover:bg-primary/90 shadow-[0_4px_0_0_#4020CC];
+  }
+  
+  .game-button-secondary {
+    @apply relative px-6 py-3 rounded-xl font-bold transition-all active:translate-y-1 active:shadow-none bg-secondary text-primary hover:bg-secondary/90 shadow-[0_4px_0_0_#CC9F00];
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');

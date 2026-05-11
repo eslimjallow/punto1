@@ -1,0 +1,6 @@
+{
+  "name": "English Quest",
+  "description": "A professional, gamified language learning platform for mastering English through interactive missions, AI-powered speaking practice, and community challenges.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": []
+}
